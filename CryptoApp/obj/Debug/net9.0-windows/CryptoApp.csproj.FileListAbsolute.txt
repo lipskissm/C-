@@ -29,3 +29,4 @@ C:\Users\lipsk\OneDrive\Desktop\CryptoApp\CryptoApp\obj\Debug\net9.0-windows\ref
 C:\Users\lipsk\OneDrive\Desktop\CryptoApp\CryptoApp\obj\Debug\net9.0-windows\CryptoApp.pdb
 C:\Users\lipsk\OneDrive\Desktop\CryptoApp\CryptoApp\obj\Debug\net9.0-windows\CryptoApp.genruntimeconfig.cache
 C:\Users\lipsk\OneDrive\Desktop\CryptoApp\CryptoApp\obj\Debug\net9.0-windows\ref\CryptoApp.dll
+C:\Users\lipsk\OneDrive\Desktop\CryptoApp\CryptoApp\obj\Debug\net9.0-windows\CryptoApp.sourcelink.json

@@ -10,3 +10,4 @@ C:\Users\lipsk\OneDrive\Desktop\CryptoApp\CryptoLibrary\obj\Debug\net9.0\CryptoL
 C:\Users\lipsk\OneDrive\Desktop\CryptoApp\CryptoLibrary\obj\Debug\net9.0\refint\CryptoLibrary.dll
 C:\Users\lipsk\OneDrive\Desktop\CryptoApp\CryptoLibrary\obj\Debug\net9.0\CryptoLibrary.pdb
 C:\Users\lipsk\OneDrive\Desktop\CryptoApp\CryptoLibrary\obj\Debug\net9.0\ref\CryptoLibrary.dll
+C:\Users\lipsk\OneDrive\Desktop\CryptoApp\CryptoLibrary\obj\Debug\net9.0\CryptoLibrary.sourcelink.json

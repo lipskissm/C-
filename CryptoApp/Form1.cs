@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CryptoLibrary;
+using CryptoLibrary; // Assuming CryptoApi and Crypto classes are in this library
 
 namespace CryptoApp
 {
@@ -16,38 +16,20 @@ namespace CryptoApp
         }
 
         private async void MainForm_Load(object sender, EventArgs e)
-{
-    // Clear existing columns and rows just in case
-    dgvRates.Columns.Clear();
-    dgvRates.Rows.Clear();
+        {
+            dgvRates.Columns.Clear();
+            dgvRates.Rows.Clear();
 
-    // Add necessary columns to the DataGridView
-    dgvRates.Columns.Add("Cryptocurrency", "Cryptocurrency");
-    dgvRates.Columns.Add("Rate", "Rate");
+            dgvRates.Columns.Add("Cryptocurrency", "Cryptocurrency");
+            dgvRates.Columns.Add("Rate (USD)", "Rate (USD)");
 
-    // Fetch cryptocurrency rates
-    var symbols = new List<string> { "bitcoin", "ethereum", "dogecoin" };
-    var rates = await FetchCryptoRates(symbols);
+            var cryptoRates = await _cryptoApi.FetchCurrentCryptoPrices();
 
-    // Add rows with fetched data
-    foreach (var rate in rates)
-    {
-        dgvRates.Rows.Add(rate.Key, rate.Value);
+            foreach (var rate in cryptoRates)
+            {
+                dgvRates.Rows.Add(rate.Key, rate.Value);
+            }
+        }
+
     }
-}
-
-        private async Task<Dictionary<string, decimal>> FetchCryptoRates(List<string> symbols)
-{
-    
-    var rates = new Dictionary<string, decimal>();
-    // Mock implementation (replace with actual API call logic)
-    foreach (var symbol in symbols)
-    {
-        rates[symbol] = new Random().Next(100, 50000); // Random rates for demonstration
-    }
-    await Task.Delay(500); // Simulate network delay
-    return rates;
-}
-    
-   }
 }
