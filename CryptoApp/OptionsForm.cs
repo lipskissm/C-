@@ -12,10 +12,15 @@ namespace CryptoApp
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public List<string> SelectedCryptos { get; private set; }
 
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public DateTime? SelectedDate { get; private set; }
+
         public OptionsForm()
         {
             InitializeComponent();
             SelectedCryptos = new List<string>();
+            SelectedDate = null; // Initialize SelectedDate
         }
 
         private void OptionsForm_Load(object sender, EventArgs e)
@@ -37,8 +42,11 @@ namespace CryptoApp
                 .Select(cb => cb.Text)
                 .ToList();
 
+            SelectedDate = dtpDate.Value.Date; // Capture the selected date
+
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
+        
     }
 }

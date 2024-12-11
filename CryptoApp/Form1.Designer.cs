@@ -8,6 +8,7 @@ namespace CryptoApp
         private DataGridView dgvRates;
          private System.Windows.Forms.Button btnOpenOptions;
          private System.Windows.Forms.Button btnRefresh; 
+         private System.Windows.Forms.Button btnOpenGraphForm;
 
         protected override void Dispose(bool disposing)
         {
@@ -48,22 +49,25 @@ namespace CryptoApp
             
 
    
-    this.btnOpenOptions = new System.Windows.Forms.Button();
-    this.btnOpenOptions.Location = new System.Drawing.Point(12, 420);
-    this.btnOpenOptions.Name = "btnOpenOptions";
-    this.btnOpenOptions.Size = new System.Drawing.Size(120, 30);
-    this.btnOpenOptions.Text = "Filter Options";
-    this.btnOpenOptions.Click += new System.EventHandler(this.btnOpenOptions_Click);
-    this.Controls.Add(this.btnOpenOptions);
+            this.btnOpenOptions = new System.Windows.Forms.Button();
+            this.btnOpenOptions.Location = new System.Drawing.Point(12, 420);
+            this.btnOpenOptions.Name = "btnOpenOptions";
+            this.btnOpenOptions.Size = new System.Drawing.Size(120, 30);
+            this.btnOpenOptions.Text = "Filter Options";
+            this.btnOpenOptions.Click += new System.EventHandler(this.btnOpenOptions_Click);
+            this.Controls.Add(this.btnOpenOptions);
 
 
-    this.btnRefresh = new System.Windows.Forms.Button();
-this.btnRefresh.Location = new System.Drawing.Point(150, 420); // Adjust location as needed
-this.btnRefresh.Name = "btnRefresh";
-this.btnRefresh.Size = new System.Drawing.Size(120, 30);
-this.btnRefresh.Text = "Refresh";
-this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
-this.Controls.Add(this.btnRefresh);
+            this.btnRefresh = new System.Windows.Forms.Button();
+            this.btnRefresh.Location = new System.Drawing.Point(150, 420); // Adjust location as needed
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(120, 30);
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            this.Controls.Add(this.btnRefresh);
+            this.btnOpenGraphForm = new System.Windows.Forms.Button();
+
+
         }
         
 

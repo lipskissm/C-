@@ -1,59 +1,52 @@
-﻿using Newtonsoft.Json;
+﻿using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace CryptoLibrary
 {
     public class CryptoApi
     {
         private readonly HttpClient _httpClient = new HttpClient();
-    
         private const string _baseUrl = "https://api.coinlayer.com";
 
-        public async Task<Dictionary<string, decimal>> GetCryptoRatesAsync(List<string> symbols, string currency = "usd")
+        public async Task<Dictionary<string, decimal>> FetchCryptoPricesByDate(List<string> symbols, DateTime? date)
         {
-            var symbolString = string.Join(",", symbols);
-            var url = $"{_baseUrl}?ids={symbolString}&vs_currencies={currency}";
+            string dateString = date?.ToString("yyyy-MM-dd") ?? "live";
+            string endpoint = $"{_baseUrl}/{dateString}?access_key=058e86578b8879aa9cbe3ac580f93e8b";
 
-            var response = await _httpClient.GetStringAsync(url);
-            var data = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, decimal>>>(response);
-
-            var rates = new Dictionary<string, decimal>();
-            foreach (var item in data)
+            if (symbols != null && symbols.Count > 0)
             {
-                rates[item.Key] = item.Value[currency];
+                string symbolString = string.Join(",", symbols);
+                endpoint += $"&symbols={symbolString}";
             }
-            return rates;
-     
-        }
 
-        public async Task<Dictionary<string, decimal>> FetchCurrentCryptoPrices()
-        {
-            string endpoint = _baseUrl + "/live?access_key=058e86578b8879aa9cbe3ac580f93e8b";
             HttpResponseMessage response = await _httpClient.GetAsync(endpoint);
 
             if (response.IsSuccessStatusCode)
             {
                 string jsonResponse = await response.Content.ReadAsStringAsync();
-
-                try
-                {
-                    // Deserialize the JSON response
-                    var cryptoResponse = JsonConvert.DeserializeObject<CryptoResponse>(jsonResponse);
-                    if (cryptoResponse != null && cryptoResponse.Rates != null)
-                    {
-                        return cryptoResponse.Rates;
-                    }
-                }
-                catch (JsonException ex)
-                {
-                    Console.WriteLine($"Deserialization error: {ex.Message}");
-                }
+                var cryptoResponse = JsonConvert.DeserializeObject<CryptoResponse>(jsonResponse);
+                return cryptoResponse?.Rates ?? new Dictionary<string, decimal>();
             }
 
-            // Return an empty dictionary if response fails or data is unavailable
             return new Dictionary<string, decimal>();
         }
 
+        public async Task<Dictionary<string, decimal>> FetchCurrentCryptoPrices()
+        {
+            string endpoint = $"{_baseUrl}/live?access_key=058e86578b8879aa9cbe3ac580f93e8b";
+            HttpResponseMessage response = await _httpClient.GetAsync(endpoint);
 
+            if (response.IsSuccessStatusCode)
+            {
+                string jsonResponse = await response.Content.ReadAsStringAsync();
+                var cryptoResponse = JsonConvert.DeserializeObject<CryptoResponse>(jsonResponse);
+                return cryptoResponse?.Rates ?? new Dictionary<string, decimal>();
+            }
 
+            return new Dictionary<string, decimal>();
+        }
     }
 }
