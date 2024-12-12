@@ -32,9 +32,9 @@ namespace CryptoApp
 
             var cryptoRates = await _cryptoApi.FetchCurrentCryptoPrices();
 
-            var fileManager = new FileManager();
-            string filePath = "crypto_rates.json"; // Path to save the file
-            fileManager.SaveToJson(filePath, cryptoRates);
+            // var fileManager = new FileManager();
+            // string filePath = "crypto_rates.json"; // Path to save the file
+            // fileManager.SaveToJson(filePath, cryptoRates);
 
             foreach (var rate in cryptoRates)
             {
@@ -55,6 +55,9 @@ namespace CryptoApp
                     try
                     {
                         var cryptoRates = await _cryptoApi.FetchCryptoPricesByDate(selectedCryptos, selectedDate);
+                         var fileManager = new FileManager();
+                        string filePath = "crypto_rates.json"; // Path to save the file
+                        fileManager.SaveToJson(filePath, cryptoRates);
 
                         dgvRates.Rows.Clear();
                         foreach (var rate in cryptoRates)
