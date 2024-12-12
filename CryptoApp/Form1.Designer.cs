@@ -9,6 +9,7 @@ namespace CryptoApp
          private System.Windows.Forms.Button btnOpenOptions;
          private System.Windows.Forms.Button btnRefresh; 
          private System.Windows.Forms.Button btnOpenGraphForm;
+          private System.Windows.Forms.Button btnOpenNewWindow;
 
         protected override void Dispose(bool disposing)
         {
@@ -67,6 +68,13 @@ namespace CryptoApp
             this.Controls.Add(this.btnRefresh);
             this.btnOpenGraphForm = new System.Windows.Forms.Button();
 
+            this.btnOpenNewWindow = new System.Windows.Forms.Button();
+            this.btnOpenNewWindow.Location = new System.Drawing.Point(290, 420); // Adjust location as needed
+            this.btnOpenNewWindow.Name = "btnOpenNewWindow";
+            this.btnOpenNewWindow.Size = new System.Drawing.Size(120, 30);
+            this.btnOpenNewWindow.Text = "Open Window";
+            this.btnOpenNewWindow.Click += new System.EventHandler(this.btnOpenNewWindow_Click);
+            this.Controls.Add(this.btnOpenNewWindow);
 
         }
         

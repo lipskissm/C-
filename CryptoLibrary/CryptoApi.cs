@@ -45,8 +45,7 @@ namespace CryptoLibrary
                 var cryptoResponse = JsonConvert.DeserializeObject<CryptoResponse>(jsonResponse);
                 return cryptoResponse?.Rates ?? new Dictionary<string, decimal>();
             }
-
-            return new Dictionary<string, decimal>();
+                        return new Dictionary<string, decimal>();
         }
     }
 }

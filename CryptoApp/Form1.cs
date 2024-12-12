@@ -85,6 +85,12 @@ namespace CryptoApp
             }
         }
 
+        private void btnOpenNewWindow_Click(object sender, EventArgs e)
+    {
+    var newWindow = new NewWindowForm();
+    newWindow.ShowDialog(); // This will open the new window as a modal
+    }
+
        
     }
 }
