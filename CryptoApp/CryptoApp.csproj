@@ -9,7 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="EPPlus" Version="7.5.1" />
+    <PackageReference Include="EPPlus" Version="7.5.2" />
+    <PackageReference Include="OxyPlot.WindowsForms" Version="2.1.0" />
   </ItemGroup>
 
   <ItemGroup>

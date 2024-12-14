@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     "net9.0-windows7.0": {
-      "EPPlus/7.5.1": {
+      "EPPlus/7.5.2": {
         "type": "package",
         "dependencies": {
           "EPPlus.System.Drawing": "7.5.0",
@@ -249,6 +249,38 @@
           }
         }
       },
+      "OxyPlot.Core/2.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/OxyPlot.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/OxyPlot.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "OxyPlot.WindowsForms/2.1.0": {
+        "type": "package",
+        "dependencies": {
+          "OxyPlot.Core": "2.1.0"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/OxyPlot.WindowsForms.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/OxyPlot.WindowsForms.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WindowsForms"
+        ]
+      },
       "System.ComponentModel.Annotations/5.0.0": {
         "type": "package",
         "compile": {
@@ -341,15 +373,15 @@
     }
   },
   "libraries": {
-    "EPPlus/7.5.1": {
-      "sha512": "3ddsZARkpB5VxlfkRQJumCkSDZrU0yBOl6e/ZHR9KgPNa6atMFApgbu+hp9vOq/r5CUToMaudBWEyTSsdF+vLg==",
+    "EPPlus/7.5.2": {
+      "sha512": "qHJurPvgWoheHyyam53NV8d2CiOO2q88Rg/Lk0wSYwi/aoGDtzYihTMCHeTwGM9zHZnnI3aVLu482SODN+HB4g==",
       "type": "package",
-      "path": "epplus/7.5.1",
+      "path": "epplus/7.5.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "EPPlusLogo.png",
-        "epplus.7.5.1.nupkg.sha512",
+        "epplus.7.5.2.nupkg.sha512",
         "epplus.nuspec",
         "lib/net35/EPPlus.dll",
         "lib/net35/EPPlus.xml",
@@ -735,6 +767,44 @@
         "packageIcon.png"
       ]
     },
+    "OxyPlot.Core/2.1.0": {
+      "sha512": "jG+Ct3T59fXDG2LE1hyUaXqH7i+h5Nfway1iB0+0NaY2mvDsz8Row/BKjiBWCt5NHp3+q9JSMiD2wpin2hh3kw==",
+      "type": "package",
+      "path": "oxyplot.core/2.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "OxyPlot_128.png",
+        "lib/net40/OxyPlot.dll",
+        "lib/net40/OxyPlot.xml",
+        "lib/net45/OxyPlot.dll",
+        "lib/net45/OxyPlot.xml",
+        "lib/netstandard1.0/OxyPlot.dll",
+        "lib/netstandard1.0/OxyPlot.xml",
+        "lib/netstandard2.0/OxyPlot.dll",
+        "lib/netstandard2.0/OxyPlot.xml",
+        "oxyplot.core.2.1.0.nupkg.sha512",
+        "oxyplot.core.nuspec"
+      ]
+    },
+    "OxyPlot.WindowsForms/2.1.0": {
+      "sha512": "3ehmpvSbTKUOfUSeZdfIyed5kGMdgPGq/MCXi1NXqzDqQhbUZ6OwVrRnfcLKB32WtnDAzwAtchirEaAFPo5iig==",
+      "type": "package",
+      "path": "oxyplot.windowsforms/2.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "OxyPlot_128.png",
+        "lib/net40/OxyPlot.WindowsForms.dll",
+        "lib/net40/OxyPlot.WindowsForms.xml",
+        "lib/net45/OxyPlot.WindowsForms.dll",
+        "lib/net45/OxyPlot.WindowsForms.xml",
+        "lib/netcoreapp3.1/OxyPlot.WindowsForms.dll",
+        "lib/netcoreapp3.1/OxyPlot.WindowsForms.xml",
+        "oxyplot.windowsforms.2.1.0.nupkg.sha512",
+        "oxyplot.windowsforms.nuspec"
+      ]
+    },
     "System.ComponentModel.Annotations/5.0.0": {
       "sha512": "dMkqfy2el8A8/I76n2Hi1oBFEbG1SfxD2l5nhwXV3XjlnOmwxJlQbYpJH4W51odnU9sARCSAgv7S3CyAFMkpYg==",
       "type": "package",
@@ -953,7 +1023,8 @@
   "projectFileDependencyGroups": {
     "net9.0-windows7.0": [
       "CryptoLibrary >= 1.0.0",
-      "EPPlus >= 7.5.1"
+      "EPPlus >= 7.5.2",
+      "OxyPlot.WindowsForms >= 2.1.0"
     ]
   },
   "packageFolders": {
@@ -1005,7 +1076,11 @@
         "dependencies": {
           "EPPlus": {
             "target": "Package",
-            "version": "[7.5.1, )"
+            "version": "[7.5.2, )"
+          },
+          "OxyPlot.WindowsForms": {
+            "target": "Package",
+            "version": "[2.1.0, )"
           }
         },
         "imports": [

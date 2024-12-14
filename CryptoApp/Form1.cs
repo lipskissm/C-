@@ -50,7 +50,7 @@ namespace CryptoApp
                 var selectedCryptos = optionsForm.SelectedCryptos;
                 var selectedDate = optionsForm.SelectedDate;
 
-                if (selectedCryptos.Count > 0)
+                if (selectedCryptos.Count >= 0)
                 {
                     try
                     {

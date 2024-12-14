@@ -14,7 +14,7 @@ namespace CryptoLibrary
         public async Task<Dictionary<string, decimal>> FetchCryptoPricesByDate(List<string> symbols, DateTime? date)
         {
             string dateString = date?.ToString("yyyy-MM-dd") ?? "live";
-            string endpoint = $"{_baseUrl}/{dateString}?access_key=058e86578b8879aa9cbe3ac580f93e8b";
+            string endpoint = $"{_baseUrl}/{dateString}?access_key=89471476b0e18c7b10c608821f2c0d61";
 
             if (symbols != null && symbols.Count > 0)
             {
