@@ -108,9 +108,6 @@ namespace CryptoApp
 
     this.Controls.Add(plotView);
 }
-
-
-
         private void ExportToExcel(object sender, EventArgs e)
         {
             string filePath = "crypto_rates.json";

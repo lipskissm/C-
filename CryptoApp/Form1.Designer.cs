@@ -4,21 +4,9 @@ namespace CryptoApp
 {
     partial class MainForm
     {
-        private IContainer components = null;
-        private DataGridView dgvRates;
+         private DataGridView dgvRates;
          private System.Windows.Forms.Button btnOpenOptions;
-         private System.Windows.Forms.Button btnRefresh; 
-         private System.Windows.Forms.Button btnOpenGraphForm;
           private System.Windows.Forms.Button btnOpenNewWindow;
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
 
         private void InitializeComponent()
         {
@@ -40,7 +28,7 @@ namespace CryptoApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(850, 500);
             this.Controls.Add(this.dgvRates);
             this.Name = "MainForm";
             this.Text = "Crypto Rates";
@@ -59,14 +47,14 @@ namespace CryptoApp
             this.Controls.Add(this.btnOpenOptions);
 
 
-            this.btnRefresh = new System.Windows.Forms.Button();
-            this.btnRefresh.Location = new System.Drawing.Point(150, 420); // Adjust location as needed
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(120, 30);
-            this.btnRefresh.Text = "Refresh";
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
-            this.Controls.Add(this.btnRefresh);
-            this.btnOpenGraphForm = new System.Windows.Forms.Button();
+            // this.btnRefresh = new System.Windows.Forms.Button();
+            // this.btnRefresh.Location = new System.Drawing.Point(150, 420); // Adjust location as needed
+            // this.btnRefresh.Name = "btnRefresh";
+            // this.btnRefresh.Size = new System.Drawing.Size(120, 30);
+            // this.btnRefresh.Text = "Refresh";
+            // this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // this.Controls.Add(this.btnRefresh);
+            // this.btnOpenGraphForm = new System.Windows.Forms.Button();
 
             this.btnOpenNewWindow = new System.Windows.Forms.Button();
             this.btnOpenNewWindow.Location = new System.Drawing.Point(290, 420); // Adjust location as needed
@@ -77,9 +65,5 @@ namespace CryptoApp
             this.Controls.Add(this.btnOpenNewWindow);
 
         }
-        
-
-
-
     }
 }

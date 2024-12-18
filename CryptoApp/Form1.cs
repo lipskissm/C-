@@ -17,10 +17,10 @@ namespace CryptoApp
             InitializeComponent();
         }
 
-        private void btnRefresh_Click(object sender, EventArgs e)
-        {
-            RefreshCryptoPrices();
-        }
+        // private void btnRefresh_Click(object sender, EventArgs e)
+        // {
+        //     RefreshCryptoPrices();
+        // }
 
         private async void MainForm_Load(object sender, EventArgs e)
         {
@@ -76,20 +76,20 @@ namespace CryptoApp
 }
 
 
-        private async void RefreshCryptoPrices()
-        {
-            var cryptoRates = await _cryptoApi.FetchCurrentCryptoPrices();
-            var fileManager = new FileManager();
-            string filePath = "crypto_rates.json";
+        // private async void RefreshCryptoPrices()
+        // {
+        //     var cryptoRates = await _cryptoApi.FetchCurrentCryptoPrices();
+        //     var fileManager = new FileManager();
+        //     string filePath = "crypto_rates.json";
 
-            // fileManager.SaveToJson(filePath, cryptoRates);
+        //     // fileManager.SaveToJson(filePath, cryptoRates);
 
-            dgvRates.Rows.Clear();
-            foreach (var rate in cryptoRates)
-            {
-                dgvRates.Rows.Add(rate.Key, rate.Value);
-            }
-        }
+        //     dgvRates.Rows.Clear();
+        //     foreach (var rate in cryptoRates)
+        //     {
+        //         dgvRates.Rows.Add(rate.Key, rate.Value);
+        //     }
+        // }
 
         private void btnOpenNewWindow_Click(object sender, EventArgs e)
     {
