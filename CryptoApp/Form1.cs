@@ -43,35 +43,38 @@ namespace CryptoApp
         }
 
         private async void btnOpenOptions_Click(object sender, EventArgs e)
+{
+    var optionsForm = new OptionsForm();
+    if (optionsForm.ShowDialog() == DialogResult.OK)
+    {
+        var selectedCryptos = optionsForm.SelectedCryptos;
+        var selectedDate = optionsForm.SelectedDate ?? DateTime.Now;
+
+        if (selectedCryptos.Count > 0)
         {
-            var optionsForm = new OptionsForm();
-            if (optionsForm.ShowDialog() == DialogResult.OK)
+            try
             {
-                var selectedCryptos = optionsForm.SelectedCryptos;
-                var selectedDate = optionsForm.SelectedDate;
+                var cryptoRates = await _cryptoApi.FetchCryptoPricesByDate(selectedCryptos, selectedDate);
+                var fileManager = new FileManager();
+                string filePath = "crypto_rates.json"; // Path to save the file
+                
+                // Save with the selected date
+                fileManager.SaveToJson(filePath, cryptoRates, selectedDate);
 
-                if (selectedCryptos.Count >= 0)
+                dgvRates.Rows.Clear();
+                foreach (var rate in cryptoRates)
                 {
-                    try
-                    {
-                        var cryptoRates = await _cryptoApi.FetchCryptoPricesByDate(selectedCryptos, selectedDate);
-                         var fileManager = new FileManager();
-                        string filePath = "crypto_rates.json"; // Path to save the file
-                        fileManager.SaveToJson(filePath, cryptoRates);
-
-                        dgvRates.Rows.Clear();
-                        foreach (var rate in cryptoRates)
-                        {
-                            dgvRates.Rows.Add(rate.Key, rate.Value);
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    dgvRates.Rows.Add(rate.Key, rate.Value);
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+    }
+}
+
 
         private async void RefreshCryptoPrices()
         {
@@ -79,7 +82,7 @@ namespace CryptoApp
             var fileManager = new FileManager();
             string filePath = "crypto_rates.json";
 
-            fileManager.SaveToJson(filePath, cryptoRates);
+            // fileManager.SaveToJson(filePath, cryptoRates);
 
             dgvRates.Rows.Clear();
             foreach (var rate in cryptoRates)
