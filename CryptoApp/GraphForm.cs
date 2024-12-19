@@ -14,12 +14,12 @@ namespace CryptoApp
 {
     public class NewWindowForm : Form
     {
-        private Dictionary<string, List<CryptoEntry>> _cryptoData; // Store loaded data for export
+        
 
         public NewWindowForm()
         {
-            this.Text = "Cryptocurrency Graph";
-            this.Size = new System.Drawing.Size(800, 600);
+            Text = "Cryptocurrency Graph";
+            Size = new System.Drawing.Size(800, 600);
 
             // Add Export Button
             var exportButton = new Button
@@ -32,7 +32,7 @@ namespace CryptoApp
             // Display Graph
             DisplayGraph();
 
-            this.Controls.Add(exportButton);
+            Controls.Add(exportButton);
         }
 
         private void DisplayGraph()
@@ -106,7 +106,7 @@ namespace CryptoApp
         Dock = DockStyle.Fill
     };
 
-    this.Controls.Add(plotView);
+    Controls.Add(plotView);
 }
         private void ExportToExcel(object sender, EventArgs e)
         {

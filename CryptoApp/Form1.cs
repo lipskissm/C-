@@ -30,16 +30,16 @@ namespace CryptoApp
             dgvRates.Columns.Add("Cryptocurrency", "Cryptocurrency");
             dgvRates.Columns.Add("Rate (USD)", "Rate (USD)");
 
-            var cryptoRates = await _cryptoApi.FetchCurrentCryptoPrices();
+            // var cryptoRates = await _cryptoApi.FetchCurrentCryptoPrices();
 
             // var fileManager = new FileManager();
             // string filePath = "crypto_rates.json"; // Path to save the file
             // fileManager.SaveToJson(filePath, cryptoRates);
 
-            foreach (var rate in cryptoRates)
-            {
-                dgvRates.Rows.Add(rate.Key, rate.Value);
-            }
+            // foreach (var rate in cryptoRates)
+            // {
+            //     dgvRates.Rows.Add(rate.Key, rate.Value);
+            // }
         }
 
         private async void btnOpenOptions_Click(object sender, EventArgs e)
@@ -50,7 +50,7 @@ namespace CryptoApp
         var selectedCryptos = optionsForm.SelectedCryptos;
         var selectedDate = optionsForm.SelectedDate ?? DateTime.Now;
 
-        if (selectedCryptos.Count > 0)
+        if (selectedCryptos.Count >= 0)
         {
             try
             {

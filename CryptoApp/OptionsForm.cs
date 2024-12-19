@@ -1,8 +1,6 @@
-using System;
-using System.Collections.Generic;
+
 using System.ComponentModel;
-using System.Linq;
-using System.Windows.Forms;
+
 
 namespace CryptoApp
 {
@@ -44,8 +42,8 @@ namespace CryptoApp
 
             SelectedDate = dtpDate.Value.Date; // Capture the selected date
 
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+            DialogResult = DialogResult.OK;
+            Close();
         }
         
     }

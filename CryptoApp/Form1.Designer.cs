@@ -36,8 +36,9 @@ namespace CryptoApp
             ((System.ComponentModel.ISupportInitialize)(this.dgvRates)).EndInit();
             this.ResumeLayout(false);
             
-
-   
+            //
+            //Filtering
+            //
             this.btnOpenOptions = new System.Windows.Forms.Button();
             this.btnOpenOptions.Location = new System.Drawing.Point(12, 420);
             this.btnOpenOptions.Name = "btnOpenOptions";
@@ -56,6 +57,9 @@ namespace CryptoApp
             // this.Controls.Add(this.btnRefresh);
             // this.btnOpenGraphForm = new System.Windows.Forms.Button();
 
+            //
+            //Graphform
+            //
             this.btnOpenNewWindow = new System.Windows.Forms.Button();
             this.btnOpenNewWindow.Location = new System.Drawing.Point(290, 420); // Adjust location as needed
             this.btnOpenNewWindow.Name = "btnOpenNewWindow";
